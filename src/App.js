@@ -8,6 +8,7 @@ import PageItem from "./pages/PageItem";
 import { store } from "./store";
 import "./main.css"
 import PageOrder from "./pages/PageOrder";
+import PageSearch from "./pages/PageSearch";
 
 
 
@@ -21,6 +22,7 @@ function App(){
             <Route exact path="/" element={<HomePage/>}/>
             <Route exact path="/app/:title" element={<PageItem/> }/>
             <Route exact path="/order" element={<PageOrder/>}/>
+            <Route exact path="/search" element={<PageSearch/>}/>
           </Routes>
         </div>
       </BrowserRouter>

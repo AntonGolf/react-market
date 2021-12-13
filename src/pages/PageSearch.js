@@ -1,10 +1,13 @@
+import { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { GameItem } from "../componets/GameItem"
+import { calkTotalPrice } from "../utilits"
 
 
 
 
-function HomePage(){
-    
+
+function PageSearch(){
     const GAMES = [
         {
             image: '/game-covers/forza_5.jpeg',
@@ -71,28 +74,39 @@ function HomePage(){
         },
     ]
 
-    // const countGames = GAMES.length
-    // const currentGammes = GAMES.slice(0,2)
-    // console.log(currentGammes)
+
+    const [search,setSearch] = useState(GAMES)
+
+    function onSearch(e){
+        e.preventDefault();
+        const filters = GAMES.filter(game => game.title.toLowerCase().includes(e.target.value.toLowerCase()))
+        setSearch(filters)
+    }
 
     return(
-        <div className="home-carts">
-            { GAMES.map((game) => <GameItem game={game}/>)}
-            {/* <div className="pagination">
-                <a href="#">«</a>
-                <a href="#">1</a>
-                <a className="active" href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <a href="#">»</a>
-            </div> */}
+        <div className="search">
+           <form>
+                <input type="text" onChange={(e) => onSearch(e)} placeholder="Искать здесь..."/>
+                
+            </form>
+            <div className="home-carts">
+                {
+                    search.length > 0 ?
+
+                    search.map(filter => 
+                        <GameItem game={filter} />
+                        
+                    )
+
+                    :
+
+                    <p>Пусто</p>
+                }
+            </div>
         </div>
         
-      
     )
 
 }
 
-export default HomePage
+export default PageSearch

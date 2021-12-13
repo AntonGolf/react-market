@@ -9,7 +9,7 @@
 
   #root{
     background: rgb(25 26 28);
-    height: 100vh;
+    height: 100%;
   }
 
 .game__item{
@@ -20,6 +20,7 @@
     background-color: rgb(36, 37, 41);
     border-radius: 15px;
     cursor: pointer;
+    margin-right: 30px;
     position: relative;
 }
 .game-item:not(:last-child) {
@@ -113,6 +114,7 @@
 
 .header_block{
     display: flex;
+    align-items: center;
 }
 
 .header__basket{
@@ -288,4 +290,53 @@
 
 .game-page__buy-game{
     margin-top: 15px;
+}
+.search{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.home-carts{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    /* margin-right: 30px; */
+    justify-content: center;
+}
+
+* {box-sizing: border-box;}
+form {
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+}
+input, button {
+  border: none;
+  outline: none;
+  border-radius: 3px;
+}
+input {
+  width: 100%;
+  height: 42px;
+  background: #F9F0DA;
+  padding-left: 15px;
+}
+
+
+.header_search{
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    position: relative;
+    border-radius: 100px;
+    margin-right: 30px;
+}
+
+.header_search img{
+     width: 13px;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     margin-left: -6.5px;
+     margin-top: -6.5px;
 }
